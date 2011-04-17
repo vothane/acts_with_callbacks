@@ -1,0 +1,68 @@
+Acts_With_Callbacks
+==========
+
+This acts_with extension provides the capabilities for adding (before|after)_save and (before|after)_destroy callbacks to ActiveResource
+
+Example
+=======
+
+...
+...
+
+class Story < ActiveResource::Base
+	acts_with_callbacks
+	
+	self.site = "http://www.pivotaltracker.com/services/v3/projects/#{PIVOTAL_PROJECT_ID}"
+	headers['X-TrackerToken'] = PIVOTAL_API_TOKEN
+
+	after_save :saving_message1, :saving_message2
+	before_destroy :destroy_message1, :destroy_message2
+	
+	def saving_message1
+		puts "saved"
+	end
+
+	def saving_message2
+		put "saved again"
+	end
+
+	def destroy_message1
+		puts "destroyed"
+	end
+
+	def destroy_message1
+		puts "about to be destroyed"
+	end
+
+	def destroy_message2
+		puts "about to be destroyed again"
+	end
+end
+
+TODOs
+=======
+
+before and after cannot be used together for the same save or destroy method
+
+example (will not work):
+
+class Story < ActiveResource::Base
+	acts_with_callbacks
+	
+	self.site = "http://www.pivotaltracker.com/services/v3/projects/#{PIVOTAL_PROJECT_ID}"
+	headers['X-TrackerToken'] = PIVOTAL_API_TOKEN
+	@@history = []
+
+	before_save :saving_message1
+	after_save :saving_message2
+	
+	def saving_message1
+		puts "saved"
+	end
+
+	def saving_message2
+		put "saved again"
+	end
+end
+
+Copyright (c) 2011 Thane Vo
