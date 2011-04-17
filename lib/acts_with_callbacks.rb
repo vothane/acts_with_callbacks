@@ -23,10 +23,10 @@ module Acts
 
             class_eval %{
             	def #{callback_method.to_s}(&block)
-              	run_callbacks(:#{callback_method.to_s}) do
-              	  yield if block_given?
-                	super
-              	end
+              	   run_callbacks(:#{callback_method.to_s}) do
+              	     yield if block_given?
+                     super
+              	   end
             	end
             }
           end
