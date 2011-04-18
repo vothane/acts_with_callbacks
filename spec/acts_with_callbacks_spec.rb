@@ -24,7 +24,9 @@ describe "basic functionallity callbacks with ActiveResource" do
 
       before_save :test_for_save
       after_destroy :test_for_destroy
-
+      
+      private
+      
       def test_for_save
         true
       end
