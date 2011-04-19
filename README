@@ -3,6 +3,12 @@ Acts_With_Callbacks
 
 This acts_with extension provides the capabilities for adding (before|after)_save and (before|after)_destroy callbacks to ActiveResource
 
+Requirements & Dependencies
+===========================
+
+active_resource >= 3.0.0
+active_support  >= 3.0.0
+
 Example
 =======
 
