@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'active_resource'
-require 'active_support'
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 module HelperMethods
