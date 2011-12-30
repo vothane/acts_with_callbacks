@@ -6,6 +6,7 @@ This acts_with extension provides the capabilities for adding (before|after)_sav
 Requirements & Dependencies
 ===========================
 
+ruby            >= 1.9.2
 active_resource >= 3.0.0
 active_support  >= 3.0.0
 
