@@ -33,13 +33,13 @@ describe "basic functionallity callbacks with ActiveResource" do
       end
     end
 
-    response = {:id => 1, :datum => "blah"}.to_xml(:root => "data")
+    response = {:id => 1, :datum => "blah"}.to_json
 
     ActiveResource::HttpMock.respond_to do |mock|
-      mock.post "/mocks.xml", {"Accept" => "application/xml"}, response, 201
-      mock.get "/mocks/1.xml", {"Accept" => "application/xml"}, response
-      mock.put "/mocks/1.xml", {"Accept" => "application/xml"}, nil, 204
-      mock.delete "/mocks/1.xml", {"Accept" => "application/xml"}, nil, 200
+      mock.post "/mocks.json", {"Accept" => "application/xml"}, response, 201
+      mock.get "/mocks/1.json", {"Accept" => "application/xml"}, response
+      mock.put "/mocks/1.json", {"Accept" => "application/xml"}, nil, 204
+      mock.delete "/mocks/1.json", {"Accept" => "application/xml"}, nil, 200
     end
   end
 
@@ -89,13 +89,13 @@ describe "before_save callbacks with ActiveResource" do
       self.site = 'http://localhost:3000'
     end
 
-    response = {:id => 1, :datum => "blah"}.to_xml(:root => "data")
+    response = {:id => 1, :datum => "blah"}.to_json
 
     ActiveResource::HttpMock.respond_to do |mock|
-      mock.post "/mocks.xml", {"Accept" => "application/xml"}, response, 201
-      mock.get "/mocks/1.xml", {"Accept" => "application/xml"}, response
-      mock.put "/mocks/1.xml", {"Accept" => "application/xml"}, nil, 204
-      mock.delete "/mocks/1.xml", {"Accept" => "application/xml"}, nil, 200
+      mock.post "/mocks.json", {"Accept" => "application/json"}, response, 201
+      mock.get "/mocks/1.json", {"Accept" => "application/json"}, response
+      mock.put "/mocks/1.json", {"Accept" => "application/json"}, nil, 204
+      mock.delete "/mocks/1.json", {"Accept" => "application/json"}, nil, 200
     end
   end
 
